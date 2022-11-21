@@ -1,25 +1,31 @@
-var builder = WebApplication.CreateBuilder(args);
+using contactslib;
 
-// Add services to the container.
+namespace webapi.Controllers;
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+[ApiController]
+[Route("api/[controller]")]
+public class ContactsController : ControllerBase
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    Contacts cs = new Contacts();
+
+    // api/Contacts
+    [HttpGet]
+    public IEnumerable<string> Get()
+    {
+        ContactsTest cst = new ContactsTest();
+        cst.add_records(cs);
+
+        List<string> en =  cs.get_list_str();
+        IEnumerable<string> en2 = en as IEnumerable<string>;
+
+        return en;
+    }
+
+
+    // api/Contacts/4  - gets the fourth record if it exists
+    [HttpGet(template:"{id}")]
+    public string Get(int id)
+    {
+        return cs.get_record(id);
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
