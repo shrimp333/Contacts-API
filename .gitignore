@@ -10,3 +10,5 @@ menu2/bin/Debug/
 webapi/bin/Debug/
 webapi2/bin/Debug/
 unit_test/bin/Debug/
+webapi/obj/staticwebassets.pack.sentinel
+webapi/obj/Debug/net6.0/webapi.csproj.AssemblyReference.cache

@@ -1,6 +1,7 @@
 # Contacts-API
 ## Task
-``` Testing and programming project for ICT
+``` 
+Testing and programming project for ICT
 Can work in a team up to 3 people.
 * only one person needs to submit, but the word document needs all the 
 members to be listed with their student id's.
