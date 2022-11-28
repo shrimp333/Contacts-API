@@ -20,9 +20,39 @@ public class ContactsController : ControllerBase
 
         return en;
     }
+    //get i'th record
+    // api/Contacts/5
+    [HttpGet("{id}")]
+    public string Get(int id)
+    {
+        return cs.get_record(id);
+    }
 
+    //get records
+    // api/Contacts/1
+    [HttpGet("{id}")]
+    public string Get(int id)
+    {
+        return cs.get_record(id);
+    }
 
-    // api/Contacts/4  - gets the fourth record if it exists
+    
+    //delete i'th record
+    // api/Contacts/1
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+        cs.delete_record(id);
+    }
+    
+    //add record
+    // api/Contacts/1
+    [HttpPost("{id}")]
+    public void Post(int id, [FromBody] string value)
+    {
+        cs.add_record(id, value);
+    }
+
     [HttpGet(template:"{id}")]
     public string Get(int id)
     {
