@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/luke/Contacts-API/webapi/webapi.csproj": {}
+    "C:\\Users\\benpr\\OneDrive - Swinburne University\\Sem2\\Tuesday\\C#\\Contacts-API\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "/home/luke/Contacts-API/webapi/webapi.csproj": {
+    "C:\\Users\\benpr\\OneDrive - Swinburne University\\Sem2\\Tuesday\\C#\\Contacts-API\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luke/Contacts-API/webapi/webapi.csproj",
+        "projectUniqueName": "C:\\Users\\benpr\\OneDrive - Swinburne University\\Sem2\\Tuesday\\C#\\Contacts-API\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "/home/luke/Contacts-API/webapi/webapi.csproj",
-        "packagesPath": "/home/luke/.nuget/packages/",
-        "outputPath": "/home/luke/Contacts-API/webapi/obj/",
+        "projectPath": "C:\\Users\\benpr\\OneDrive - Swinburne University\\Sem2\\Tuesday\\C#\\Contacts-API\\webapi\\webapi.csproj",
+        "packagesPath": "C:\\Users\\benpr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\benpr\\OneDrive - Swinburne University\\Sem2\\Tuesday\\C#\\Contacts-API\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/luke/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\benpr\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -49,7 +49,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
