@@ -12,3 +12,7 @@ webapi2/bin/Debug/
 unit_test/bin/Debug/
 webapi/obj/staticwebassets.pack.sentinel
 webapi/obj/Debug/net6.0/webapi.csproj.AssemblyReference.cache
+contactsLib/obj/Debug/net6.0/contactsLib.assets.cache
+contactsLib/obj/Debug/net6.0/contactsLib.csproj.AssemblyReference.cache
+contactsLib/obj/Debug/net6.0/contactsLib.GeneratedMSBuildEditorConfig.editorconfig
+webapi/obj/Debug/net6.0/webapi.assets.cache
