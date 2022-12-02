@@ -1,4 +1,5 @@
 ﻿using System;
+using contactsLib;
 namespace ContactApp
 {
     class Program
