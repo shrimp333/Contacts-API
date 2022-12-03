@@ -46,8 +46,8 @@ namespace ContactApp
             string number = Console.ReadLine();            
             Contact contact = new Contact(cid,name,number);
             link.get().AddContact(contact);
-            Console.WriteLine("Contact Added");
-            Thread.Sleep(2000);
+            Console.WriteLine("Contact Added\nPress any key to continue");
+            Console.ReadKey();
         }
 
         static void DeleteRecord()
