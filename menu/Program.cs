@@ -10,7 +10,7 @@ namespace ContactApp
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Please select a menu item (1-5)");
+                Console.WriteLine("Please select a menu item (1-4)");
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine("1. Add Record\n2. Delete Record\n3. Print\n4. Exit");
                 string? selection = Console.ReadLine();
@@ -36,20 +36,38 @@ namespace ContactApp
 
         static void AddRecord()
         {
+            Console.Clear();
+            Console.WriteLine("Welcome to the Add Record Section\n---------------------------------");
+            Console.WriteLine("To start, please enter the Contact's Identification Number");
             string cid = Console.ReadLine();
+            Console.WriteLine("Please enter the Contact's First Name");
             string name = Console.ReadLine();
-            string number = Console.ReadLine();
+            Console.WriteLine("Please enter the Contact's Phone Number");
+            string number = Console.ReadLine();            
             Contact contact = new Contact(cid,name,number);
             link.get().AddContact(contact);
+            Console.WriteLine("Contact Added");
+            Thread.Sleep(2000);
         }
 
         static void DeleteRecord()
         {
-
+            Console.Clear();
+            Console.WriteLine("Welcome to the Delete Record Section\n------------------------------------");
+            Console.WriteLine("To start, please enter the Contact's Identification Number");
+            int index = int.Parse(Console.ReadLine());
+            link.get().DeleteContact(index);
+            Console.WriteLine("Contact Deleted");
+            Thread.Sleep(2000);
         }
 
         static void PrintRecord()
         {
+            Console.Clear();
+            Console.WriteLine("Welcome to the Print Record Section\n-----------------------------------");
+            Console.WriteLine("To start, please enter the Contact's Identification Number");
+            int index = int.Parse(Console.ReadLine());
+            Console.WriteLine(link.get().ConvertToString()[index]);
         }
 
 
