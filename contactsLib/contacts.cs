@@ -1,18 +1,18 @@
 ﻿namespace contactsLib;
 public class Contact
 {
-    public string? contactID {get; set;}
-    public string? name {get; set;}
-    public string? phoneNumber {get; set;}
+    public string contactID {get; set;}
+    public string name {get; set;}
+    public string phoneNumber {get; set;}
     public Contact(string contactID, string name, string phoneNumber)
     {
         this.name = name;
-        this.contactID = name;
+        this.contactID = contactID;
         this.phoneNumber = phoneNumber;
     }
 }
 public class Contacts {
-    List<Contact> contactsList;
+    List<Contact> contactsList = new List<Contact>();
     public void AddContact(Contact contact) {
         contactsList.Add(contact);
         return;
@@ -21,9 +21,9 @@ public class Contacts {
         contactsList.RemoveAt(index);
         return;
     }
-    public List<string> ConvertContactListToString(List<Contact> contList){
+    public List<string> ConvertToString(){
         List<string> stringList = new List<string>();
-        foreach (Contact cont in contList) {
+        foreach (Contact cont in contactsList) {
             stringList.Add($"{cont.contactID}:{cont.name}:{cont.phoneNumber}");
         }
         return stringList;
