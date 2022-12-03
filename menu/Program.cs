@@ -49,7 +49,6 @@ namespace ContactApp
             Console.WriteLine("Contact Added\nPress any key to continue");
             Console.ReadKey();
         }
-
         static void DeleteRecord()
         {
             Console.Clear();
@@ -60,7 +59,6 @@ namespace ContactApp
             Console.WriteLine("Contact Deleted\nPress any key to continue");
             Console.ReadKey();
         }
-
         static void PrintRecord()
         {
             Console.Clear();
@@ -69,8 +67,6 @@ namespace ContactApp
             int index = int.Parse(Console.ReadLine());
             Console.WriteLine(link.get().ConvertToString()[index]);
         }
-
-
     }
 
 }
