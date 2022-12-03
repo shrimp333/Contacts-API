@@ -4,6 +4,7 @@ namespace ContactApp
 {
     class Program
     {
+        public static ContactLink link = new ContactLink();
         static void Main(string[] args)
         {
             while (true)
@@ -35,7 +36,11 @@ namespace ContactApp
 
         static void AddRecord()
         {
-
+            string cid = Console.ReadLine();
+            string name = Console.ReadLine();
+            string number = Console.ReadLine();
+            Contact contact = new Contact(cid,name,number);
+            link.get().AddContact(contact);
         }
 
         static void DeleteRecord()
@@ -45,7 +50,6 @@ namespace ContactApp
 
         static void PrintRecord()
         {
-
         }
 
 
