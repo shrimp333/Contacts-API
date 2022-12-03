@@ -57,8 +57,8 @@ namespace ContactApp
             Console.WriteLine("To start, please enter the Contact's Identification Number");
             int index = int.Parse(Console.ReadLine());
             link.get().DeleteContact(index);
-            Console.WriteLine("Contact Deleted");
-            Thread.Sleep(2000);
+            Console.WriteLine("Contact Deleted\nPress any key to continue");
+            Console.ReadKey();
         }
 
         static void PrintRecord()
