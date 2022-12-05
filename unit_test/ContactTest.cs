@@ -31,12 +31,12 @@ public class ContactTest
     [Fact]
     public void testRemove()
     {
-        string johnString = "1:John:0459";
-        Contact john = new Contact("1", "John", "0459");
+        string johnString = "abc123:John:0459";
+        Contact john = new Contact("abc123", "John", "0459");
         test.get().AddContact(john);
         Assert.Equal(johnString, test.get().ConvertToString()[0]);
         //test to see if john got added
-        test.get().DeleteContact(0);
+        test.get().DeleteContact("abc123");
         Assert.Equal(0, test.get().ConvertToString().Count);
         //test to see if the list is now empty
     }
