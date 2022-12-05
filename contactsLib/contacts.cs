@@ -29,4 +29,10 @@ public class Contacts {
         }
         return stringList;
     }
+
+    public string Search(string cid)
+    {
+        int index = contactsList.FindIndex(x => x.contactID == cid);
+        return $"{ConvertToString()[index]} at place {index}";
+    }
 }
