@@ -10,3 +10,5 @@ menu_database/bin/*
 webapi/bin/*
 webapi_database/bin/*
 unit_test/bin/*
+contactsLib_Database/obj/
+contactsLib_Database/bin/
