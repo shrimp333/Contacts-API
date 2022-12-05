@@ -1,12 +1,12 @@
 contactsLib/obj/*
 menu/obj/*
-menu2/obj/*
+menu_database/obj/*
 webapi/obj/*
-webapi2/obj/*
+webapi_database/obj/*
 unit_test/obj/*
 contactsLib/bin/*
 menu/bin/*
-menu2/bin/*
+menu_database/bin/*
 webapi/bin/*
-webapi2/bin/*
+webapi_database/bin/*
 unit_test/bin/*
