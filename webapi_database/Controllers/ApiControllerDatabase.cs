@@ -53,7 +53,7 @@ public class ApiController : ControllerBase
         string result = "empty";
         try
         {
-            // result = link.get().Search(cid);
+            result = link.get().Search(cid);
         }
         catch (System.Exception)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Data;
 namespace contactsLibDatabase;
 public class Contacts
 {
@@ -24,19 +25,24 @@ public class Contacts
         conn.Close();
         return;
     }
-    // public List<string> ConvertToString()
-    // {
-    //     List<string> stringList = new List<string>();
-    //     foreach (Contact cont in contactsList)
-    //     {
-    //         stringList.Add($"{cont.contactID}:{cont.name}:{cont.phoneNumber}");
-    //     }
-    //     return stringList;
-    // }
 
-    // public string Search(string cid)
-    // {
-    //     int index = contactsList.FindIndex(x => x.contactID == cid);
-    //     return $"{ConvertToString()[index]} at place {index}";
-    // }
+    public string Search(string cid)
+    {
+        List<string> result = new();
+        DataTable dtResult = new DataTable();
+        conn.Open();
+        Console.WriteLine("open");
+        SqlDataAdapter cmd = new($"SELECT * FROM CONTACTS WHERE CUSTOMERID='{cid}';", conn);
+        Console.WriteLine($"SELECT * FROM CONTACTS WHERE CUSTOMERID={cid};");
+        DataTable table = new();
+        cmd.Fill(table);
+        DataRow dr = table.Rows[0];
+        foreach (DataColumn dc in table.Columns)
+        {
+            result.Add(dr[dc.ColumnName].ToString());
+            Console.WriteLine(dr[dc.ColumnName].ToString());
+        }
+        conn.Close();
+        return $"{result[0]}:{result[1]}:{result[2]}";
+    }
 }
