@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using contactsLib;
+using contactsLibDatabase;
 namespace webapi.Controllers;
 
 [ApiController]

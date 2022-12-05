@@ -1,9 +1,4 @@
-﻿namespace contactsLib_Database;
-public class Class1
-{
-
-}
-namespace contactsLib;
+﻿namespace contactsLibDatabase;
 public class Contact
 {
     public string contactID {get; set;}
