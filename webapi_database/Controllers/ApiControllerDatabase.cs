@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using contactsLibDatabase;
+using System.Data.SqlClient;
 namespace webapi.Controllers;
-
 [ApiController]
 [Route("[controller]")]
 public class ApiController : ControllerBase
@@ -17,6 +17,7 @@ public class ApiController : ControllerBase
     [HttpGet("get")]
     public string Get()
     {
+        Connect();
         return "The contacts api";
     }
     [HttpGet("add")]
@@ -62,5 +63,11 @@ public class ApiController : ControllerBase
             return "Something went wrong";
         }
         return $"Success\n{result}";
+    }
+
+    static void Connect()
+    {
+        SqlConnection cn = new SqlConnection();
+        cn.ConnectionString = @"Data Source=192.168.1.50,1433;Integrated Security=False;User ID=sa;Password=dOf];\{48CL16-hX3YSbJ";
     }
 }
