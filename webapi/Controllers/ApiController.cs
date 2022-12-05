@@ -63,9 +63,4 @@ public class ApiController : ControllerBase
         }
         return $"Success\n{result}";
     }
-    [HttpGet("test")]
-    public int test(int i, int j)
-    {
-        return i + j;
-    }
 }
