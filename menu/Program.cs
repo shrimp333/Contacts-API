@@ -1,10 +1,12 @@
 ﻿using System;
 using contactsLib;
+using System.Net.Http.Headers;
 namespace ContactApp
 {
     class Program
     {
         public static ContactLink link = new ContactLink();
+        public static string ApiServer = "localhost:5050";
         static void Main(string[] args)
         {
             while (true)
@@ -43,10 +45,10 @@ namespace ContactApp
             Console.WriteLine("Please enter the Contact's First Name");
             string name = Console.ReadLine();
             Console.WriteLine("Please enter the Contact's Phone Number");
-            string number = Console.ReadLine();            
-            Contact contact = new Contact(cid,name,number);
-            link.get().AddContact(contact);
-            Console.WriteLine("Contact Added\nPress any key to continue");
+            string number = Console.ReadLine();
+            string uri = $"http://{ApiServer}/api/add?contactConstructor={cid},{name},{number}";
+            Task<string> result = MakeApiRequest(uri);
+            Console.WriteLine($"{result.Result}\nPress any key to continue");
             Console.ReadKey();
         }
         static void DeleteRecord()
@@ -54,9 +56,10 @@ namespace ContactApp
             Console.Clear();
             Console.WriteLine("Welcome to the Delete Record Section\n------------------------------------");
             Console.WriteLine("To start, please enter the Contact's Identification Number");
-            int index = int.Parse(Console.ReadLine());
-            link.get().DeleteContact(index);
-            Console.WriteLine("Contact Deleted\nPress any key to continue");
+            string cid = Console.ReadLine();
+            string uri = $"http://{ApiServer}/api/delete?cid={cid}";
+            Task<string> result = MakeApiRequest(uri);
+            Console.WriteLine($"{result.Result}\nPress any key to continue");
             Console.ReadKey();
         }
         static void PrintRecord()
@@ -64,8 +67,18 @@ namespace ContactApp
             Console.Clear();
             Console.WriteLine("Welcome to the Print Record Section\n-----------------------------------");
             Console.WriteLine("To start, please enter the Contact's Identification Number");
-            int index = int.Parse(Console.ReadLine());
-            Console.WriteLine(link.get().ConvertToString()[index]);
+            string cid = Console.ReadLine();
+            string uri = $"http://{ApiServer}/api/search?cid={cid}";
+            Task<string> result = MakeApiRequest(uri);
+            Console.WriteLine($"{result.Result}\nPress any key to continue");
+            Console.ReadKey();
+        }
+
+        static async Task<string> MakeApiRequest(string uri)
+        {
+            using HttpClient client = new();
+            string response = await client.GetStringAsync(uri);
+            return response;
         }
     }
 
