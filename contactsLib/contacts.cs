@@ -17,7 +17,8 @@ public class Contacts {
         contactsList.Add(contact);
         return;
     }
-    public void DeleteContact(int index){
+    public void DeleteContact(string cid){
+        int index = contactsList.FindIndex(x => x.contactID == cid);
         contactsList.RemoveAt(index);
         return;
     }
