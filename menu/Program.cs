@@ -1,11 +1,9 @@
 ﻿using System;
-using contactsLib;
 using System.Net.Http.Headers;
 namespace ContactApp
 {
     class Program
     {
-        public static ContactLink link = new ContactLink();
         public static string ApiServer = "localhost:5050";
         static void Main(string[] args)
         {
