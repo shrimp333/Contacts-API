@@ -4,7 +4,7 @@ namespace ContactApp
 {
     class Program
     {
-        public static string ApiServer = "localhost:5050";
+        public static string ApiServer = "localhost:5016";
         static void Main(string[] args)
         {
             while (true)

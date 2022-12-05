@@ -6,6 +6,7 @@ namespace webapi.Controllers;
 [Route("[controller]")]
 public class ApiController : ControllerBase
 {
+    public static SqlConnection conn = new SqlConnection(@"Server=db-ben.cx9d0jwmg18x.ap-northeast-1.rds.amazonaws.com;Database=contacts;User Id=admin;Password=Greats12345!!;");
     public static ContactLink link = new ContactLink();
 
     private readonly ILogger<ApiController> _logger;
@@ -26,9 +27,14 @@ public class ApiController : ControllerBase
         //contructor is cid,name,phoneN
         try
         {
-            string[] split = contactConstructor.Split(",");
-            Contact contact = new(split[0], split[1], split[2]);
-            link.get().AddContact(contact);
+            string[] arr = contactConstructor.Split(",");
+            conn.Open();
+            SqlCommand cmd = new("INSERT INTO CONTACTS VALUES (@cid, @fname, @pnum)", conn);
+            cmd.Parameters.AddWithValue("@cid", arr[0]);
+            cmd.Parameters.AddWithValue("@fname", arr[1]);
+            cmd.Parameters.AddWithValue("@pnum", arr[2]);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
         catch (System.Exception)
         {
@@ -67,7 +73,12 @@ public class ApiController : ControllerBase
 
     static void Connect()
     {
-        SqlConnection cn = new SqlConnection();
-        cn.ConnectionString = @"Data Source=192.168.1.50,1433;Integrated Security=False;User ID=sa;Password=dOf];\{48CL16-hX3YSbJ";
+        using (SqlConnection conn = new SqlConnection(@"Server=db-ben.cx9d0jwmg18x.ap-northeast-1.rds.amazonaws.com;Database=master;User Id=admin;Password=Greats12345!!;"))
+        {
+            conn.Open();
+            Console.WriteLine("Connection is just opened");
+            System.Threading.Thread.Sleep(10000);
+            conn.Close();
+        }
     }
 }
